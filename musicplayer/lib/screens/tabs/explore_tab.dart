@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/socicon_icons.dart';
 import 'package:musicplayer/widgets/music_tile.dart';
 import 'package:musicplayer/widgets/trend_of_music_widget.dart';
 
@@ -13,6 +14,25 @@ class _ExploreTabState extends State<ExploreTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: false,
+        title: Container(
+          child: Image.asset(
+            "assets/images/octave_logo.png",
+            fit: BoxFit.fitHeight,
+            alignment: Alignment.centerLeft,
+            width: 120,
+          ),
+        ),
+        actions: [
+          IconButton(
+              splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.bell)),
+          IconButton(
+              splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.lyrics))
+        ],
+      ),
       backgroundColor: Colors.transparent,
       body: ListView(
         children: [
