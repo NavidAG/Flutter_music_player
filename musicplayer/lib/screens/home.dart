@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicplayer/screens/tabs/explore_tab.dart';
+import 'package:musicplayer/screens/tabs/profile_tab.dart';
 import 'package:musicplayer/socicon_icons.dart';
 
 class Home extends StatefulWidget {
@@ -25,25 +26,6 @@ class _HomeState extends State<Home> {
           ])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          centerTitle: false,
-          title: Container(
-            child: Image.asset(
-              "assets/images/octave_logo.png",
-              fit: BoxFit.fitHeight,
-              alignment: Alignment.centerLeft,
-              width: 120,
-            ),
-          ),
-          actions: [
-            IconButton(
-                splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.bell)),
-            IconButton(
-                splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.lyrics))
-          ],
-        ),
         bottomNavigationBar: BottomNavigationBar(
           //TODO: set the selected icons' image
           selectedItemColor: Colors.white,
@@ -85,6 +67,6 @@ class _HomeState extends State<Home> {
     if (_currentIndex == 0) return ExploreTab();
     if (_currentIndex == 1) return Container();
     if (_currentIndex == 2) return Container();
-    if (_currentIndex == 3) return Container();
+    if (_currentIndex == 3) return ProfileTab();
   }
 }
