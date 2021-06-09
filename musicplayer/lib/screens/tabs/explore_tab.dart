@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/screens/tabs/audio_setting_page.dart';
+import 'package:musicplayer/screens/tabs/edit_account_page.dart';
 import 'package:musicplayer/socicon_icons.dart';
 import 'package:musicplayer/widgets/music_tile.dart';
 import 'package:musicplayer/widgets/trend_of_music_widget.dart';
@@ -28,9 +30,25 @@ class _ExploreTabState extends State<ExploreTab> {
         ),
         actions: [
           IconButton(
-              splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.bell)),
+              splashRadius: 20,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditAccountPage()),
+                );
+              },
+              icon: Icon(Socicon.bell)),
           IconButton(
-              splashRadius: 20, onPressed: () {}, icon: Icon(Socicon.lyrics))
+              splashRadius: 20,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AudioSettingPage(),
+                      fullscreenDialog: true),
+                );
+              },
+              icon: Icon(Socicon.lyrics))
         ],
       ),
       backgroundColor: Colors.transparent,
@@ -110,6 +128,62 @@ class _ExploreTabState extends State<ExploreTab> {
               },
             ),
           ),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: Text(
+              "Recently Played",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: "SFProText-Bold",
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            height: 5 * 85, //equals item count
+            child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (_, index) {
+                  return ListTile(
+                    horizontalTitleGap: 0,
+                    contentPadding: EdgeInsets.symmetric(vertical: 0),
+                    title: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Container(
+                        height: 35,
+                        width: 35,
+                        color: Colors.pink,
+                      ),
+                      title: Text(
+                        "Title Number ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                      ),
+                      subtitle: Text(
+                        "Artist ${index + 1}",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    leading: Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        "${index + 1}",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 16),
+                      ),
+                    ),
+                    trailing: IconButton(
+                      splashRadius: 20,
+                      icon: Icon(Icons.more_horiz_rounded),
+                      onPressed: () {},
+                    ),
+                  );
+                }),
+          )
         ],
       ),
     );
@@ -141,8 +215,8 @@ class _ExploreTabState extends State<ExploreTab> {
               textAlign: TextAlign.start,
               style: TextStyle(
                   color: Colors.white.withOpacity(0.4),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
+                  fontWeight: FontWeight.w300,
+                  fontSize: 16),
             ),
           ),
         ],
