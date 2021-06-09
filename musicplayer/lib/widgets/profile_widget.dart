@@ -10,9 +10,9 @@ class ProfileWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.all(20),
-            width: 80,
-            height: 80,
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+            width: 100,
+            height: 100,
             child: ClipOval(
               child: Container(
                 color: Colors.red,
@@ -20,6 +20,7 @@ class ProfileWidget extends StatelessWidget {
             ),
           ),
           Container(
+            margin: EdgeInsets.fromLTRB(0, 20, 20, 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,7 +40,7 @@ class ProfileWidget extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(12),
                       color: Colors.white.withOpacity(0.1),
                       height: 40,
                       width: 2,
@@ -58,7 +59,7 @@ class ProfileWidget extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(12),
                       color: Colors.white.withOpacity(0.1),
                       height: 40,
                       width: 2,

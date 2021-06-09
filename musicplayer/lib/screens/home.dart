@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/screens/tabs/Search_tab.dart';
 import 'package:musicplayer/screens/tabs/explore_tab.dart';
 import 'package:musicplayer/screens/tabs/profile_tab.dart';
 import 'package:musicplayer/socicon_icons.dart';
@@ -65,7 +66,7 @@ class _HomeState extends State<Home> {
 
   _body() {
     if (_currentIndex == 0) return ExploreTab();
-    if (_currentIndex == 1) return Container();
+    if (_currentIndex == 1) return SearchTab();
     if (_currentIndex == 2) return Container();
     if (_currentIndex == 3) return ProfileTab();
   }
