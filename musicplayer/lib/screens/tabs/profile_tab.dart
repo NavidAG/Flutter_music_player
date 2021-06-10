@@ -50,7 +50,7 @@ class ProfileTab extends StatelessWidget {
             ),
             child: TextField(
               decoration: InputDecoration(
-                hintText: "search your setting",
+                hintText: "Search Your Setting",
                 prefixIcon: Icon(
                   Socicon.magnifier,
                   color: Colors.white54,
@@ -190,10 +190,7 @@ class ProfileTab extends StatelessWidget {
                         trailing: Icon(Icons.chevron_right),
                         leading: Container(
                           margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/1828427.svg",
-                            color: Colors.white,
-                          ),
+                          child: Icon(Icons.verified_user),
                         ),
                         title: Text("Privacy and Policy"),
                       );
