@@ -77,7 +77,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
                                       EdgeInsets.fromLTRB(10, 10, 0, 10),
                                   focusedBorder: InputBorder.none,
                                   enabledBorder: InputBorder.none,
-                                  hintText: "Hana",
+                                  hintText: "Emran",
                                   hintStyle: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600)

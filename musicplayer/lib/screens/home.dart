@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:musicplayer/screens/tabs/Search_tab.dart';
 import 'package:musicplayer/screens/tabs/explore_tab.dart';
 import 'package:musicplayer/screens/tabs/profile_tab.dart';
 import 'package:musicplayer/socicon_icons.dart';
+import 'package:musicplayer/widgets/now_playing_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -59,7 +61,13 @@ class _HomeState extends State<Home> {
             });
           },
         ),
-        body: _body(),
+        body: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            _body(),
+            NowPlayingWidget(),
+          ],
+        ),
       ),
     );
   }
