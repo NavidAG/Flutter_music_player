@@ -49,11 +49,16 @@ class ProfileTab extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(width: 0, color: Colors.transparent),
+                      borderSide: BorderSide(
+                        width: 0,
+                        color: Colors.transparent,
+                      ),
                       borderRadius: BorderRadius.circular(40)),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0, color: Colors.transparent),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: Colors.transparent,
+                    ),
                     borderRadius: BorderRadius.circular(40),
                   ),
                   contentPadding: EdgeInsets.only(top: 0),
