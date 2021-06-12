@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/models/car_mode_radio_model.dart';
+
+import '../models/car_mode_radio_model.dart';
 
 class CarModeRadio extends StatefulWidget {
   final CarModeRadioModel carModeRadioModel;

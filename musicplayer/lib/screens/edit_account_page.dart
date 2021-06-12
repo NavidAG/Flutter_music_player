@@ -1,10 +1,6 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 
 class EditAccountPage extends StatefulWidget {
-  const EditAccountPage({Key? key}) : super(key: key);
-
   @override
   _EditAccountPageState createState() => _EditAccountPageState();
 }

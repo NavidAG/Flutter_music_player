@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/widgets/magenta_button.dart';
 
-class PlaylistPage extends StatefulWidget {
-  const PlaylistPage({Key? key}) : super(key: key);
+import '../../../widgets/magenta_button.dart';
+
+class PlaylistTab extends StatefulWidget {
+  const PlaylistTab({Key? key}) : super(key: key);
 
   @override
-  _PlaylistPageState createState() => _PlaylistPageState();
+  _PlaylistTabState createState() => _PlaylistTabState();
 }
 
-class _PlaylistPageState extends State<PlaylistPage> {
+class _PlaylistTabState extends State<PlaylistTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +59,7 @@ class _PlaylistPageState extends State<PlaylistPage> {
             margin: EdgeInsets.all(10),
             child: MagentaButton(
               title: "Add New Playlist",
+              onPressed: () {},
             ),
           )
         ],

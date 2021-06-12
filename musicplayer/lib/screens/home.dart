@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:musicplayer/screens/tabs/Search_tab.dart';
-import 'package:musicplayer/screens/tabs/explore_tab.dart';
-import 'package:musicplayer/screens/tabs/playlist_page.dart';
-import 'package:musicplayer/screens/tabs/profile_tab.dart';
-import 'package:musicplayer/socicon_icons.dart';
-import 'package:musicplayer/widgets/now_playing_widget.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../widgets/now_playing_widget.dart';
+import 'tabs/explore_tab/explore_tab.dart';
+import 'tabs/playlist_tab/playlist_tab.dart';
+import 'tabs/profile_tab/profile_tab.dart';
+import 'tabs/search_tab/Search_tab.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -31,28 +32,38 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         bottomNavigationBar: BottomNavigationBar(
-          //TODO: set the selected icons' image
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Socicon.home),
+              icon: SvgPicture.asset(
+                "assets/icons/home.svg",
+                color: _currentIndex == 0 ? Colors.white : Colors.grey,
+              ),
               label: "Explore",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Socicon.magnifier),
+              icon: SvgPicture.asset(
+                "assets/icons/search.svg",
+                color: _currentIndex == 1 ? Colors.white : Colors.grey,
+              ),
               label: "Search",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Socicon.library),
+              icon: SvgPicture.asset(
+                "assets/icons/library.svg",
+                color: _currentIndex == 2 ? Colors.white : Colors.grey,
+              ),
               label: "library",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Socicon.group_12632),
+              //TODO: user icon is missing and should be replaced
+              icon: Icon(
+                Icons.warning_rounded,
+                color: _currentIndex == 3 ? Colors.white : Colors.grey,
+              ),
               label: "profile",
             ),
           ],
@@ -76,7 +87,7 @@ class _HomeState extends State<Home> {
   _body() {
     if (_currentIndex == 0) return ExploreTab();
     if (_currentIndex == 1) return SearchTab();
-    if (_currentIndex == 2) return PlaylistPage();
+    if (_currentIndex == 2) return PlaylistTab();
     if (_currentIndex == 3) return ProfileTab();
   }
 }

@@ -16,7 +16,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -157,11 +157,17 @@ class MusicInfoWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          ClipOval(
-            child: Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width / 2,
-              height: MediaQuery.of(context).size.width / 2,
+          Hero(
+            tag: "now_playing",
+            child: Material(
+              color: Colors.transparent,
+              child: ClipOval(
+                child: Container(
+                  color: Colors.white,
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: MediaQuery.of(context).size.width / 2,
+                ),
+              ),
             ),
           ),
           Container(
