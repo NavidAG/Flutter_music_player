@@ -1,6 +1,8 @@
 class CarModeRadioModel {
-  bool? isSelected = false;
+  bool isSelected = false;
   String? text;
 
-  CarModeRadioModel(text);
+  CarModeRadioModel(this.text);
+
+  void toggle() => isSelected = !isSelected;
 }
