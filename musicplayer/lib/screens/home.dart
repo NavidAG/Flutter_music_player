@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:musicplayer/screens/tabs/Search_tab.dart';
 import 'package:musicplayer/screens/tabs/explore_tab.dart';
-import 'package:musicplayer/screens/tabs/now_playing.dart';
+import 'package:musicplayer/screens/tabs/playlist_page.dart';
 import 'package:musicplayer/screens/tabs/profile_tab.dart';
 import 'package:musicplayer/socicon_icons.dart';
 import 'package:musicplayer/widgets/now_playing_widget.dart';
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
   _body() {
     if (_currentIndex == 0) return ExploreTab();
     if (_currentIndex == 1) return SearchTab();
-    if (_currentIndex == 2) return NowPlayingPage();
+    if (_currentIndex == 2) return PlaylistPage();
     if (_currentIndex == 3) return ProfileTab();
   }
 }
