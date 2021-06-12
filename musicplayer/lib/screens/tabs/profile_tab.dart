@@ -36,189 +36,180 @@ class ProfileTab extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
       ),
-      body: Column(
-        children: [
-          ProfileWidget(),
-          Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
-            height: 50,
-            // width: 312,
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search Your Setting",
-                prefixIcon: Icon(
-                  Socicon.magnifier,
-                  color: Colors.white54,
+      body: Container(
+        child: ListView(
+          children: [
+            ProfileWidget(),
+            Container(
+              padding: EdgeInsets.zero,
+              margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
+              height: 50,
+              // width: 312,
+
+              child: TextField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 0, color: Colors.transparent),
+                      borderRadius: BorderRadius.circular(40)),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 0, color: Colors.transparent),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  contentPadding: EdgeInsets.only(top: 0),
+                  alignLabelWithHint: true,
+                  fillColor: Colors.black.withOpacity(0.4),
+                  filled: true,
+                  hintText: "Search Your Setting",
+                  prefixIcon: Icon(
+                    Socicon.magnifier,
+                    color: Colors.white54,
+                  ),
+                  border: InputBorder.none,
                 ),
-                border: InputBorder.none,
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
-            height: 72,
-            // width: 312,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white12,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(25),
-                  child: Text(
-                    "Octave Premium",
-                    style: TextStyle(fontSize: 15),
+            Container(
+              margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              height: 72,
+              // width: 312,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white12,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(20),
+                    child: Text(
+                      "Octave Premium",
+                      style: TextStyle(fontSize: 15),
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: MagentaButton(title: "Get"),
-                ),
-              ],
+                  Container(
+                    margin: EdgeInsets.only(right: 15),
+                    child: MagentaButton(title: "Get"),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.separated(
-                itemBuilder: (BuildContext context, int index) {
-                  switch (index) {
-                    case 0:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/lock_home.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Privacy Setting"),
-                        subtitle: Text(
-                          "Music Privacy & Sharing",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 1:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/double_music.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Music Setting"),
-                        subtitle: Text(
-                          "Audio quality and music behavior",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 2:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/plus_option.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("App Setting"),
-                        subtitle: Text(
-                          "Dark mode and language",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 3:
-                      return ListTile(
-                        onTap: () => _onShareButtonPressed(context),
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/device_bell.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Notifications"),
-                        subtitle: Text(
-                          "Recommendations, chat and activities",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 4:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/display.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Connect to another device"),
-                        subtitle: Text(
-                          "Connect to you TV, Sound bar & others",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 5:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/share_chain.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Socilize with us"),
-                        subtitle: Text(
-                          "Follow us on social media",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    case 6:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: Icon(Icons.verified_user),
-                        ),
-                        title: Text("Privacy and Policy"),
-                      );
-                    case 7:
-                      return ListTile(
-                        trailing: Icon(Icons.chevron_right),
-                        leading: Container(
-                          margin: EdgeInsets.only(left: 10, right: 10),
-                          child: SvgPicture.asset(
-                            "assets/icons/1828427.svg",
-                            color: Colors.white,
-                          ),
-                        ),
-                        title: Text("Logout"),
-                        subtitle: Text(
-                          "hannamontana@gmail.com",
-                          style: TextStyle(fontSize: 12, color: Colors.white24),
-                        ),
-                      );
-                    default:
-                      return ListTile();
-                  }
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
-                itemCount: 8),
-          )
-        ],
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/lock_home.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Privacy Setting"),
+              subtitle: Text(
+                "Music Privacy & Sharing",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/double_music.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Music Setting"),
+              subtitle: Text(
+                "Audio quality and music behavior",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/plus_option.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("App Setting"),
+              subtitle: Text(
+                "Dark mode and language",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              onTap: () => _onShareButtonPressed(context),
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/device_bell.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Notifications"),
+              subtitle: Text(
+                "Recommendations, chat and activities",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/display.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Connect to another device"),
+              subtitle: Text(
+                "Connect to you TV, Sound bar & others",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/share_chain.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Socilize with us"),
+              subtitle: Text(
+                "Follow us on social media",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: Icon(Icons.verified_user),
+              ),
+              title: Text("Privacy and Policy"),
+            ),
+            ListTile(
+              trailing: Icon(Icons.chevron_right),
+              leading: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                child: SvgPicture.asset(
+                  "assets/icons/1828427.svg",
+                  color: Colors.white,
+                ),
+              ),
+              title: Text("Logout"),
+              subtitle: Text(
+                "hannamontana@gmail.com",
+                style: TextStyle(fontSize: 12, color: Colors.white24),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

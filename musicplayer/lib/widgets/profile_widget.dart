@@ -8,15 +8,15 @@ class ProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-            width: 100,
-            height: 100,
-            child: ClipOval(
-              child: Container(
-                color: Colors.red,
-              ),
+            margin: EdgeInsets.only(left: 20, right: 10),
+            width: MediaQuery.of(context).size.width / 4,
+            height: MediaQuery.of(context).size.width / 4,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
             ),
           ),
           Container(
@@ -24,60 +24,72 @@ class ProfileWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "22",
-                        ),
-                        Text(
-                          "Playlists",
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.4)),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(12),
-                      color: Colors.white.withOpacity(0.1),
-                      height: 40,
-                      width: 2,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "360 K",
-                        ),
-                        Text(
-                          "Follower",
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.4)),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(12),
-                      color: Colors.white.withOpacity(0.1),
-                      height: 40,
-                      width: 2,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "56",
-                        ),
-                        Text(
-                          "Following",
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.4)),
-                        ),
-                      ],
-                    ),
-                  ],
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "22",
+                          ),
+                          Text(
+                            "Playlists",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.4),
+                              fontSize:
+                                  MediaQuery.of(context).textScaleFactor * 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        color: Colors.white.withOpacity(0.1),
+                        height: 40,
+                        width: 2,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "360 K",
+                          ),
+                          Text(
+                            "Follower",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.4),
+                              fontSize:
+                                  MediaQuery.of(context).textScaleFactor * 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        color: Colors.white.withOpacity(0.1),
+                        height: 40,
+                        width: 2,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "56",
+                          ),
+                          Text(
+                            "Following",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.4),
+                              fontSize:
+                                  MediaQuery.of(context).textScaleFactor * 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
