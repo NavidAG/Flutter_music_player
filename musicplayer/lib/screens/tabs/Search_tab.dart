@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/widgets/music_card_wiget.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({Key? key}) : super(key: key);
@@ -63,25 +64,22 @@ class _SearchTabState extends State<SearchTab> {
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
                 children: [
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.green,
+                  MusicCardWidget(
+                    musicTypeName: "pop",
                   ),
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.green,
+                  MusicCardWidget(
+                    musicTypeName: "pop",
                   ),
-                  Container(
-                    height: 20,
-                    width: 20,
-                    color: Colors.green,
-                  )
+                  MusicCardWidget(
+                    musicTypeName: "pop",
+                  ),
+                  MusicCardWidget(
+                    musicTypeName: "pop",
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
