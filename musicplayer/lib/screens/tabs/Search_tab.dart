@@ -9,6 +9,13 @@ class SearchTab extends StatefulWidget {
 }
 
 class _SearchTabState extends State<SearchTab> {
+  var sectionLabels = [
+    "Recent Search",
+    "Artists",
+    "Songs",
+    "Albums",
+    "Podcasts"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
