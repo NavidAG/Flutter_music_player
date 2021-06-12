@@ -46,7 +46,8 @@ class _EditAccountPageState extends State<EditAccountPage> {
           ],
         ),
         backgroundColor: Colors.transparent,
-        body: Container(
+        body: SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 50),
           child: Column(
             children: [
               Stack(
@@ -210,13 +211,6 @@ class _EditAccountPageState extends State<EditAccountPage> {
                                 _selectDate(context);
                               },
                             )),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
-                          child: Divider(
-                            color: Colors.black,
-                            height: 0.2,
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -275,16 +269,17 @@ class _EditAccountPageState extends State<EditAccountPage> {
                 ),
                 height: 40.0,
                 child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 10)),
-                    child: Text(
-                      "Deactivate Account",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
-                    )),
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(horizontal: 10)),
+                  child: Text(
+                    "Deactivate Account",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),
