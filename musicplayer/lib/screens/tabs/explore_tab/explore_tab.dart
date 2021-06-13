@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/screens/tabs/audio_setting_page.dart';
-import 'package:musicplayer/screens/tabs/edit_account_page.dart';
-import 'package:musicplayer/socicon_icons.dart';
-import 'package:musicplayer/widgets/music_tile.dart';
-import 'package:musicplayer/widgets/trend_of_music_widget.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../widgets/music_tile.dart';
+import '../../../widgets/trend_of_music_widget.dart';
 
 class ExploreTab extends StatefulWidget {
   const ExploreTab({Key? key}) : super(key: key);
@@ -30,29 +29,26 @@ class _ExploreTabState extends State<ExploreTab> {
         ),
         actions: [
           IconButton(
-              splashRadius: 20,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditAccountPage()),
-                );
-              },
-              icon: Icon(Socicon.bell)),
+            splashRadius: 20,
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              "assets/icons/bell.svg",
+              color: Colors.white,
+            ),
+          ),
           IconButton(
-              splashRadius: 20,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AudioSettingPage(),
-                      fullscreenDialog: true),
-                );
-              },
-              icon: Icon(Socicon.lyrics))
+            splashRadius: 20,
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              "assets/icons/content.svg",
+              color: Colors.white,
+            ),
+          ),
         ],
       ),
       backgroundColor: Colors.transparent,
       body: ListView(
+        padding: EdgeInsets.only(bottom: 80),
         children: [
           Container(
             margin: EdgeInsets.only(top: 10, left: 20),

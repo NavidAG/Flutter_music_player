@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:musicplayer/socicon_icons.dart';
-import 'package:musicplayer/widgets/magenta_button.dart';
-import 'package:musicplayer/widgets/profile_widget.dart';
+
+import '../../../widgets/magenta_button.dart';
+import '../../../widgets/profile_widget.dart';
+import 'audio_setting_page.dart';
 
 // ignore: must_be_immutable
 class ProfileTab extends StatelessWidget {
@@ -38,11 +39,12 @@ class ProfileTab extends StatelessWidget {
       ),
       body: Container(
         child: ListView(
+          padding: EdgeInsets.fromLTRB(20, 10, 20, 80),
           children: [
             ProfileWidget(),
             Container(
               padding: EdgeInsets.zero,
-              margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
+              margin: EdgeInsets.symmetric(vertical: 10),
               height: 50,
               // width: 312,
 
@@ -67,7 +69,7 @@ class ProfileTab extends StatelessWidget {
                   filled: true,
                   hintText: "Search Your Setting",
                   prefixIcon: Icon(
-                    Socicon.magnifier,
+                    Icons.search,
                     color: Colors.white54,
                   ),
                   border: InputBorder.none,
@@ -75,7 +77,7 @@ class ProfileTab extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              margin: EdgeInsets.symmetric(vertical: 10),
               height: 72,
               // width: 312,
               decoration: BoxDecoration(
@@ -94,7 +96,10 @@ class ProfileTab extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 15),
-                    child: MagentaButton(title: "Get"),
+                    child: MagentaButton(
+                      title: "Get",
+                      onPressed: () {},
+                    ),
                   ),
                 ],
               ),
@@ -102,7 +107,6 @@ class ProfileTab extends StatelessWidget {
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/lock_home.svg",
                   color: Colors.white,
@@ -115,9 +119,14 @@ class ProfileTab extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AudioSettingPage(),
+                    fullscreenDialog: true),
+              ),
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/double_music.svg",
                   color: Colors.white,
@@ -132,7 +141,6 @@ class ProfileTab extends StatelessWidget {
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/plus_option.svg",
                   color: Colors.white,
@@ -148,7 +156,6 @@ class ProfileTab extends StatelessWidget {
               onTap: () => _onShareButtonPressed(context),
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/device_bell.svg",
                   color: Colors.white,
@@ -163,7 +170,6 @@ class ProfileTab extends StatelessWidget {
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/display.svg",
                   color: Colors.white,
@@ -178,7 +184,6 @@ class ProfileTab extends StatelessWidget {
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/share_chain.svg",
                   color: Colors.white,
@@ -193,15 +198,16 @@ class ProfileTab extends StatelessWidget {
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
-                child: Icon(Icons.verified_user),
+                child: SvgPicture.asset(
+                  "assets/icons/shield.svg",
+                  color: Colors.white,
+                ),
               ),
               title: Text("Privacy and Policy"),
             ),
             ListTile(
               trailing: Icon(Icons.chevron_right),
               leading: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
                 child: SvgPicture.asset(
                   "assets/icons/1828427.svg",
                   color: Colors.white,
@@ -267,7 +273,6 @@ class ProfileTab extends StatelessWidget {
                         height: 45,
                         child: ListTile(
                           leading: Container(
-                            margin: EdgeInsets.only(left: 10, right: 10),
                             child: SvgPicture.asset(
                               "assets/icons/1828427.svg",
                               color: Colors.white,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/widgets/music_card_wiget.dart';
+
+import '../../../widgets/music_card_wiget.dart';
+import 'search_page.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({Key? key}) : super(key: key);
@@ -32,28 +34,45 @@ class _SearchTabState extends State<SearchTab> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
-            height: 50,
-            // width: 312,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: TextField(
-              style: TextStyle(
-                color: Colors.black,
-              ),
-              decoration: InputDecoration(
-                fillColor: Colors.black,
-                hintText: "Search",
-                hintStyle: TextStyle(color: Colors.black),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.black,
+          Hero(
+            tag: "searchBox",
+            child: Container(
+              height: 50,
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Material(
+                color: Colors.transparent,
+                child: TextField(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SearchPage(),
+                        fullscreenDialog: true),
+                  ),
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black.withOpacity(0.6),
+                    ),
+
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 0, color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(40)),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 0, color: Colors.transparent),
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    hintText: 'Search',
+                    fillColor: Colors.white,
+                    filled: true,
+                    contentPadding: EdgeInsets.only(top: 0),
+                    alignLabelWithHint: true,
+                    hintStyle: TextStyle(color: Colors.black),
+                    // border: InputBorder.none,
+                  ),
                 ),
-                border: InputBorder.none,
               ),
             ),
           ),

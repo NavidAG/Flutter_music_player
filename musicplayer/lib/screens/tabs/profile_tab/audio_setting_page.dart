@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:musicplayer/models/car_mode_radio_model.dart';
-import 'package:musicplayer/widgets/car_mode_radio.dart';
+import '../../../models/car_mode_radio_model.dart';
+import '../../../widgets/car_mode_radio.dart';
 
 class AudioSettingPage extends StatefulWidget {
   const AudioSettingPage({Key? key}) : super(key: key);

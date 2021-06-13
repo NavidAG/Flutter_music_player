@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class MagentaButton extends StatefulWidget {
   final String title;
-  const MagentaButton({Key? key, required this.title}) : super(key: key);
+  final Function onPressed;
+  const MagentaButton({Key? key, required this.title, required this.onPressed})
+      : super(key: key);
 
   @override
   _MagentaButtonState createState() => _MagentaButtonState();
@@ -24,7 +26,7 @@ class _MagentaButtonState extends State<MagentaButton> {
               ),
               borderRadius: BorderRadius.circular(5)),
           child: OutlinedButton(
-            onPressed: () {},
+            onPressed: () => this.widget.onPressed(),
             child: Text(
               widget.title,
               maxLines: 1,

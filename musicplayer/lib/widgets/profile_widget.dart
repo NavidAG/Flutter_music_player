@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/widgets/magenta_button.dart';
+
+import '../screens/edit_account_page.dart';
+import 'magenta_button.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({Key? key}) : super(key: key);
@@ -11,7 +13,6 @@ class ProfileWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 20, right: 10),
             width: MediaQuery.of(context).size.width / 4,
             height: MediaQuery.of(context).size.width / 4,
             decoration: BoxDecoration(
@@ -94,7 +95,17 @@ class ProfileWidget extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.all(0),
-                  child: MagentaButton(title: "Edit"),
+                  child: MagentaButton(
+                    title: "Edit",
+                    onPressed: () {
+                      print("hi");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditAccountPage()),
+                      );
+                    },
+                  ),
                 )
               ],
             ),
