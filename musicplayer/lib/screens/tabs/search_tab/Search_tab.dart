@@ -126,13 +126,13 @@ class _SearchTabState extends State<SearchTab> {
                     CustomPaint(
                       size: Size(20, (20 * 1.0).toDouble()),
                       painter: MusicCardWidget(
-                        colors: [Colors.red, Colors.black],
+                        colors: [Colors.red, Colors.orange],
                       ),
                     ),
                     CustomPaint(
                       size: Size(20, (20 * 1.0).toDouble()),
                       painter: MusicCardWidget(
-                        colors: [Colors.red, Colors.black],
+                        colors: [Colors.red, Colors.orange],
                       ),
                     ),
                   ],

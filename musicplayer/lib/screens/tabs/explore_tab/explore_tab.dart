@@ -20,9 +20,11 @@ class _ExploreTabState extends State<ExploreTab> {
         backgroundColor: Colors.transparent,
         centerTitle: false,
         title: Container(
+          height: 20,
+          width: 20,
           child: Image.asset(
             "assets/images/octave_logo.png",
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             alignment: Alignment.centerLeft,
             width: 120,
           ),
