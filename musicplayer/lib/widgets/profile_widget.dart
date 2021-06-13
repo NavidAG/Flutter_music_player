@@ -21,7 +21,7 @@ class ProfileWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 20, 20, 5),
+            margin: EdgeInsets.fromLTRB(10, 20, 0, 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
