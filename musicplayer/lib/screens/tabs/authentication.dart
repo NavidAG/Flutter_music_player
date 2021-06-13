@@ -130,7 +130,8 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                     gradient: LinearGradient(
                       colors: [
                         Color.fromRGBO(227, 0, 152, 1),
-                        Color.fromRGBO(114, 0, 76, 1),
+                        Color.fromRGBO(227, 0, 152, 1),
+                        Color.fromRGBO(75, 50, 250, 1),
                         Colors.lightBlue
                       ],
                     ),
@@ -169,31 +170,41 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Already a user? Sign In",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
+                    Flexible(
+                      flex: 1,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                    // Container(
-                    //   margin: EdgeInsets.symmetric(horizontal: 20),
-                    //   height: 20,
-                    //   width: 2,
-                    //   color: Colors.white,
-                    // ),
-                    // TextButton(
-                    //   onPressed: () {},
-                    //   child: Text(
-                    //     "Forgot Password",
-                    //     style: TextStyle(
-                    //       color: Colors.white,
-                    //     ),
-                    //   ),
-                    // )
+                    Flexible(
+                      flex: 4,
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        height: 20,
+                        width: 2,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Forgot Password",
+                          maxLines: 1,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

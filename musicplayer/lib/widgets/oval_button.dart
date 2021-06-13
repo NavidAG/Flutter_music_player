@@ -25,8 +25,9 @@ class _OvalButtonState extends State<OvalButton> {
               gradient: LinearGradient(
                 colors: [
                   Color.fromRGBO(227, 0, 152, 1),
-                  Color.fromRGBO(114, 0, 76, 1),
-                  Colors.lightBlue
+                  Color.fromRGBO(227, 0, 152, 1),
+                  Color.fromRGBO(75, 50, 250, 1),
+                  Colors.lightBlue,
                 ],
               ),
               borderRadius: BorderRadius.circular(100)),
