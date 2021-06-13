@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:musicplayer/screens/tabs/playlist_tab/album_page.dart';
 
 import '../../../widgets/music_tile.dart';
 import '../../../widgets/trend_of_music_widget.dart';
@@ -30,7 +31,13 @@ class _ExploreTabState extends State<ExploreTab> {
         actions: [
           IconButton(
             splashRadius: 20,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AlbumPage(), fullscreenDialog: true),
+              );
+            },
             icon: SvgPicture.asset(
               "assets/icons/bell.svg",
               color: Colors.white,
