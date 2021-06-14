@@ -22,7 +22,7 @@ class _ExploreTabState extends State<ExploreTab> {
         title: Container(
           child: Image.asset(
             "assets/images/octave_logo.png",
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fill,
             alignment: Alignment.centerLeft,
             width: 120,
           ),

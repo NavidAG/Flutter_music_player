@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musicplayer/screens/tabs/authentication.dart';
 
 import '../../../widgets/magenta_button.dart';
 import '../../../widgets/profile_widget.dart';
@@ -98,7 +99,10 @@ class ProfileTab extends StatelessWidget {
                     margin: EdgeInsets.only(right: 15),
                     child: MagentaButton(
                       title: "Get",
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AuthenticationPage())),
                     ),
                   ),
                 ],
