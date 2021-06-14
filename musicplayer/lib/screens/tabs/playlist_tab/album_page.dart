@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class AlbumPage extends StatefulWidget {
@@ -13,11 +15,22 @@ class _AlbumPageState extends State<AlbumPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color.fromRGBO(31, 33, 40, 1),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromRGBO(41, 21, 107, 1),
+              Color.fromRGBO(41, 21, 107, 1),
+              Color.fromRGBO(31, 33, 40, 1)
+            ],
+          ),
+        ),
         child: CustomScrollView(
           controller: _scrollController,
           slivers: <Widget>[
             SliverAppBar(
+              backgroundColor: Colors.black,
               elevation: 0,
 
               // actions: <Widget>[
@@ -29,72 +42,46 @@ class _AlbumPageState extends State<AlbumPage> {
                 preferredSize: Size(0, 20),
               ),
               pinned: true,
+
               expandedHeight: 350,
               flexibleSpace: Stack(
                 children: [
-                  Positioned(
-                      child: Image(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          "https://images.pexels.com/photos/62389/pexels-photo-62389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                  Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              "https://images.pexels.com/photos/62389/pexels-photo-62389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                          fit: BoxFit.cover),
+                    ),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                      child: Container(
+                        decoration:
+                            BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      child: FlexibleSpaceBar(
+                        background: Image(
+                          fit: BoxFit.fitHeight,
+                          image: NetworkImage(
+                            "https://images.pexels.com/photos/62389/pexels-photo-62389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                          ),
                         ),
                       ),
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0),
+                    ),
+                  ),
                   Positioned(
                     child: Container(
                       height: 20,
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(31, 33, 40, 1),
+                        color: Color.fromRGBO(41, 21, 107, 1),
                         borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(25),
+                          top: Radius.circular(30),
                         ),
                       ),
-                      // child: ListTile(
-                      //   horizontalTitleGap: 5,
-                      //   leading: IconButton(
-                      //       onPressed: () => Navigator.pop(context),
-                      //       icon: Icon(Icons.close)),
-                      //   title: Text(
-                      //     "Album",
-                      //     style: TextStyle(
-                      //         fontWeight: FontWeight.w600, fontSize: 35),
-                      //   ),
-                      //   trailing: Container(
-                      //     padding: EdgeInsets.symmetric(horizontal: 1),
-                      //     width: 100,
-                      //     child: Row(
-                      //       children: [
-                      // ElevatedButton(
-                      //   style: ElevatedButton.styleFrom(
-                      //       padding: EdgeInsets.zero,
-                      //       minimumSize: Size(35, 35),
-                      //       shape: CircleBorder(),
-                      //       primary: Color.fromRGBO(141, 52, 255, 1)),
-                      //   onPressed: () {},
-                      //   child: Icon(
-                      //     Icons.play_arrow,
-                      //     size: 25,
-                      //   ),
-                      // ),
-                      //         ElevatedButton(
-                      //           style: ElevatedButton.styleFrom(
-                      //               padding: EdgeInsets.zero,
-                      //               minimumSize: Size(35, 35),
-                      //               shape: CircleBorder(),
-                      //               primary: Color.fromRGBO(141, 52, 255, 1)),
-                      //           onPressed: () {},
-                      //           child: Icon(
-                      //             Icons.more_horiz_outlined,
-                      //             size: 25,
-                      //           ),
-                      //         )
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
                     ),
                     bottom: -1,
                     left: 0,
@@ -107,6 +94,7 @@ class _AlbumPageState extends State<AlbumPage> {
               // toolbarHeight: 0,
               elevation: 0,
               pinned: true,
+              backgroundColor: Color.fromRGBO(41, 21, 107, 1),
               leading: Container(
                 width: 1,
                 height: 1,
@@ -167,16 +155,40 @@ class _AlbumPageState extends State<AlbumPage> {
               ),
               bottom:
                   PreferredSize(child: Container(), preferredSize: Size(0, 0)),
-
-              backgroundColor: Color.fromRGBO(31, 33, 40, 1),
             ),
-            SliverFixedExtentList(
-              itemExtent: 50.0,
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    child: Text('List Item $index'),
+            SliverFillRemaining(
+              child: ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                itemCount: 50,
+                //shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                //padding: EdgeInsets.all(0),
+                separatorBuilder: (BuildContext context, int index) {
+                  return Divider(
+                    height: 5,
+                    thickness: 1,
+                  );
+                },
+                itemBuilder: (BuildContext context, int index) {
+                  return Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      onTap: () {},
+                      leading: Icon(Icons.play_arrow),
+                      title: Text("Music number $index"),
+                      trailing: TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size(30, 30),
+                          shape: CircleBorder(),
+                        ),
+                        child: Icon(
+                          Icons.more_horiz_outlined,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
                   );
                 },
               ),

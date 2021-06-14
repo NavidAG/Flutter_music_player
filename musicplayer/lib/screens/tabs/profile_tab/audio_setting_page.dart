@@ -87,7 +87,7 @@ class _AudioSettingPageState extends State<AudioSettingPage> {
                   ),
                 ),
               ),
-              Expanded(
+              Container(
                 child: GridView.builder(
                   itemCount: 3,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
