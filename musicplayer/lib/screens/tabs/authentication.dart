@@ -62,6 +62,14 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                               });
                             },
                             decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Colors.pink.shade900,
+                                ),
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+
                               prefixIcon: Icon(
                                 Icons.mail,
                                 color: Colors.pink.shade600,
@@ -109,6 +117,13 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                               },
                               obscureText: true,
                               decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 2,
+                                    color: Colors.pink.shade900,
+                                  ),
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
                                 prefixIcon: Icon(
                                   Icons.lock,
                                   color: Colors.pink.shade600,
@@ -294,6 +309,13 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                           });
                         },
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
+                              color: Colors.pink.shade900,
+                            ),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
                           prefixIcon: Icon(
                             Icons.mail,
                             color: Colors.pink.shade600,
@@ -335,6 +357,13 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.pink.shade900,
+                              ),
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Colors.pink.shade600,
@@ -377,6 +406,13 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Colors.pink.shade900,
+                              ),
+                              borderRadius: BorderRadius.circular(100),
+                            ),
                             prefixIcon: Icon(
                               Icons.lock,
                               color: Colors.pink.shade600,
