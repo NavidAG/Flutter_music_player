@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-class OvalButton extends StatefulWidget {
+class OvalButton extends StatelessWidget {
   final String title;
   final Function onPressed;
   const OvalButton({Key? key, required this.title, required this.onPressed})
       : super(key: key);
 
-  @override
-  _OvalButtonState createState() => _OvalButtonState();
-}
-
-class _OvalButtonState extends State<OvalButton> {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -36,9 +31,9 @@ class _OvalButtonState extends State<OvalButton> {
             style: OutlinedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100))),
-            onPressed: () => this.widget.onPressed(),
+            onPressed: () => this.onPressed(),
             child: Text(
-              widget.title,
+              title,
               maxLines: 1,
               style: TextStyle(
                 color: Colors.white,
