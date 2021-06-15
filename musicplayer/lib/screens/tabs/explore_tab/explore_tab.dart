@@ -106,7 +106,7 @@ class _ExploreTabState extends State<ExploreTab> {
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  width: 100,
+                  width: 124,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Colors.blueAccent),
                 );
