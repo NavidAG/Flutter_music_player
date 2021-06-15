@@ -14,19 +14,32 @@ class DownlaodPage extends StatefulWidget {
 class DownlaodPageState extends State<DownlaodPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Download Center"),
-        backgroundColor: Colors.deepPurple,
-      ),
-      backgroundColor: Color.fromRGBO(31, 33, 40, 1),
-      body: Container(
-        child: ListView(
-          padding: EdgeInsets.all(10),
-          children: [
-            _customListtile(),
-            _customListtile(),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
+          center: Alignment.topLeft,
+          radius: 0.9,
+          colors: [
+            Color.fromRGBO(41, 21, 107, 1),
+            Color.fromRGBO(31, 33, 40, 1)
           ],
+        ),
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Download Center"),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        backgroundColor: Colors.transparent,
+        body: Container(
+          child: ListView(
+            padding: EdgeInsets.all(10),
+            children: [
+              _customListtile(),
+              _customListtile(),
+            ],
+          ),
         ),
       ),
     );
