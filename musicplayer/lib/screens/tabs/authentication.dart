@@ -157,7 +157,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                         ),
                         Container(
                           width: double.infinity,
-                          height: 60,
+                          height: 45,
                           margin: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           child: OvalButton(
@@ -202,7 +202,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                     ),
                     Container(
                       width: double.infinity,
-                      height: 60,
+                      height: 45,
                       margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -215,8 +215,8 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                         child: Row(
                           children: [
                             Container(
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                                 // margin: EdgeInsets.only(top: 0),
                                 child: Image.asset("assets/images/google.png")),
                             Container(
@@ -443,7 +443,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                     ),
                     Container(
                       width: double.infinity,
-                      height: 60,
+                      height: 45,
                       margin:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: OvalButton(
