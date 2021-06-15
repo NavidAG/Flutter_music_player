@@ -32,17 +32,15 @@ class _AlbumPageState extends State<AlbumPage> {
             SliverAppBar(
               backgroundColor: Colors.black,
               elevation: 0,
-
-              // actions: <Widget>[
-              //   IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
-              //   IconButton(icon: Icon(Icons.share), onPressed: () {})
-              // ],
+              actions: <Widget>[
+                IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
+                IconButton(icon: Icon(Icons.share), onPressed: () {})
+              ],
               bottom: PreferredSize(
                 child: Container(),
                 preferredSize: Size(0, 20),
               ),
               pinned: true,
-
               expandedHeight: 350,
               flexibleSpace: Stack(
                 children: [
@@ -120,21 +118,6 @@ class _AlbumPageState extends State<AlbumPage> {
                       ],
                     ),
                     Spacer(),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            minimumSize: Size(40, 40),
-                            shape: CircleBorder(),
-                            primary: Color.fromRGBO(141, 52, 255, 1)),
-                        onPressed: () {},
-                        child: Icon(
-                          Icons.play_arrow,
-                          size: 30,
-                        ),
-                      ),
-                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       child: ElevatedButton(
