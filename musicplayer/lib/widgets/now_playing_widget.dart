@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer/screens/now_playing.dart';
+import 'package:musicplayer/screens/now_playing_page.dart';
 
 class NowPlayingWidget extends StatefulWidget {
   const NowPlayingWidget({Key? key}) : super(key: key);

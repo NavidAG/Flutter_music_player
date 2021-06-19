@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musicplayer/models/http_request.dart';
 
 import '../../../widgets/magenta_button.dart';
 
@@ -26,7 +27,6 @@ class _PlaylistTabState extends State<PlaylistTab> {
             margin: EdgeInsets.fromLTRB(24, 10, 24, 10),
             height: 50,
             // width: 312,
-
             child: TextField(
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
@@ -53,6 +53,11 @@ class _PlaylistTabState extends State<PlaylistTab> {
                 ),
                 border: InputBorder.none,
               ),
+              onSubmitted: (value) async {
+                setState(() async {
+                  await MyHttpRequest.searchRequest(value);
+                });
+              },
             ),
           ),
           Container(
