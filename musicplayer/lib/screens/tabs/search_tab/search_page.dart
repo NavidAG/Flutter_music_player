@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:musicplayer/models/bloc/search_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:musicplayer/models/download_song.dart';
 
 import 'package:musicplayer/models/http_request.dart';
+import 'package:musicplayer/widgets/downlaod_widget.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -15,15 +17,10 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  int current = 0;
   var bloc = SearchBloc();
   String textFieldValue = "";
-  var sectionLabels = [
-    "Recent Search",
-    "Artists",
-    "Songs",
-    "Albums",
-    "Podcasts"
-  ];
+  @override
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -55,11 +52,12 @@ class _SearchPageState extends State<SearchPage> {
                       child: Material(
                         color: Colors.transparent,
                         child: TextField(
-                          onSubmitted: (value) =>
-                              bloc..add(SearchPhraseEvent(phrase: value)),
-                          // onChanged: (value) {
-                          //   textFieldValue = value;
-                          // },
+                          onSubmitted: (value) => bloc
+                            ..add(SearchPhraseEvent(
+                                phrase: value, tabIndex: current)),
+                          onChanged: (value) {
+                            textFieldValue = value;
+                          },
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.search,
@@ -97,6 +95,14 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   Container(
                     child: TabBar(
+                      onTap: (index) {
+                        setState(() {
+                          current = index;
+                        });
+                        bloc
+                          ..add(SearchPhraseEvent(
+                              tabIndex: index, phrase: textFieldValue));
+                      },
                       labelPadding: EdgeInsets.symmetric(horizontal: 20),
                       indicatorSize: TabBarIndicatorSize.label,
                       indicatorColor: Color.fromRGBO(1, 200, 239, 1),
@@ -164,8 +170,89 @@ class _SearchPageState extends State<SearchPage> {
                   Flexible(
                     child: TabBarView(
                       children: <Widget>[
-                        _allTabListView(),
-                        Icon(Icons.directions_car, size: 350),
+                        BlocBuilder<SearchBloc, SearchState>(
+                          builder: (context, state) {
+                            print("----------------------------");
+                            if (state is SearchInitialState) {
+                              return Center(child: Text("Search something."));
+                            } else if (state is SearchSucceedState) {
+                              return ListView.builder(
+                                itemCount: state.result.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ListTile(
+                                    leading: Image.network(
+                                        "${state.result[index]["album"]["cover_medium"]}"),
+                                    title:
+                                        Text("${state.result[index]["title"]}"),
+                                    subtitle: Text(
+                                        "${state.result[index]["artist"]["name"]}"),
+                                    trailing: IconButton(
+                                        onPressed: () {
+                                          showModalBottomSheet(
+                                            context: context,
+                                            builder: (context) {
+                                              return DownloadWidget(
+                                                uri: state.result[index]
+                                                    ["preview"],
+                                                finaName: state.result[index]
+                                                        ["title"] +
+                                                    state.result[index]
+                                                        ["artist"]["name"],
+                                              );
+                                            },
+                                          );
+                                          // bloc
+                                          //   ..add(DownloadSongEvent(
+                                          // urlString: state.result[index]
+                                          //     ["preview"],
+                                          // fileName: state.result[index]
+                                          //         ["title"] +
+                                          //     state.result[index]
+                                          //         ["artist"]["name"]));
+                                        },
+                                        icon: Icon(Icons.download)),
+                                  );
+                                },
+                              );
+                            } else if (state is SearchFailedState) {
+                              Center(
+                                child: Text("Something went wrong."),
+                              );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return Container();
+                          },
+                        ),
+                        BlocBuilder<SearchBloc, SearchState>(
+                          builder: (context, state) {
+                            print("----------------------------");
+                            if (state is SearchInitialState) {
+                              return Center(child: Text("Search something."));
+                            } else if (state is SearchSucceedState) {
+                              return ListView.builder(
+                                itemCount: state.result.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ListTile(
+                                    leading: Image.network(
+                                        "${state.result[index]["artist"]["picture_small"]}"),
+                                    title: Text(
+                                        "${state.result[index]["artist"]["name"]}"),
+                                    subtitle:
+                                        Text("${state.result[index]["title"]}"),
+                                  );
+                                },
+                              );
+                            } else if (state is SearchFailedState) {
+                              Center(
+                                child: Text("Something went wrong."),
+                              );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return Container();
+                          },
+                        ),
                         BlocBuilder<SearchBloc, SearchState>(
                           builder: (context, state) {
                             print("----------------------------");
@@ -195,8 +282,64 @@ class _SearchPageState extends State<SearchPage> {
                             return Container();
                           },
                         ),
-                        Icon(Icons.directions_bike, size: 350),
-                        Icon(Icons.directions_boat, size: 350),
+                        BlocBuilder<SearchBloc, SearchState>(
+                          builder: (context, state) {
+                            print("----------------------------");
+                            if (state is SearchInitialState) {
+                              return Center(child: Text("Search something."));
+                            } else if (state is SearchSucceedState) {
+                              return ListView.builder(
+                                itemCount: state.result.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ListTile(
+                                    leading: Image.network(
+                                        "${state.result[index]["album"]["cover_medium"]}"),
+                                    title: Text(
+                                        "${state.result[index]["album"]["title"]}"),
+                                    subtitle: Text(
+                                        "${state.result[index]["artist"]["name"]}"),
+                                  );
+                                },
+                              );
+                            } else if (state is SearchFailedState) {
+                              Center(
+                                child: Text("Something went wrong."),
+                              );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return Container();
+                          },
+                        ),
+                        BlocBuilder<SearchBloc, SearchState>(
+                          builder: (context, state) {
+                            print("----------------------------");
+                            if (state is SearchInitialState) {
+                              return Center(child: Text("Search something."));
+                            } else if (state is SearchSucceedState) {
+                              return ListView.builder(
+                                itemCount: state.result.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return ListTile(
+                                    leading: Image.network(
+                                        "${state.result[index]["album"]["cover_medium"]}"),
+                                    title:
+                                        Text("${state.result[index]["title"]}"),
+                                    subtitle: Text(
+                                        "${state.result[index]["artist"]["name"]}"),
+                                  );
+                                },
+                              );
+                            } else if (state is SearchFailedState) {
+                              Center(
+                                child: Text("Something went wrong."),
+                              );
+                            } else {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return Container();
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -209,59 +352,60 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  _allTabListView() {
-    return ListView.builder(
-      padding: EdgeInsets.fromLTRB(10, 20, 10, 80),
-      itemCount: 5,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              width: double.infinity,
-              child: Text(
-                sectionLabels[index],
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
-              ),
-            ),
-            Container(
-              height: 90,
-              child: ListView.builder(
-                itemCount: index == 0 ? 3 : 2,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (BuildContext context, int subListIndex) {
-                  if (index == 0)
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 20),
-                      height: 30,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          alignment: Alignment.centerLeft,
-                        ),
-                        child: Text(
-                          subListIndex.toString(),
-                          textAlign: TextAlign.start,
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.6)),
-                        ),
-                        onPressed: () {},
-                      ),
-                    );
-                  else
-                    return ListTile(
-                      leading: Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.red,
-                      ),
-                      title: Text("hi"),
-                    );
-                },
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // _allTabListView() {
+
+  //   return ListView.builder(
+  //     padding: EdgeInsets.fromLTRB(10, 20, 10, 80),
+  //     itemCount: 5,
+  //     itemBuilder: (BuildContext context, int index) {
+  //       return Column(
+  //         children: [
+  //           Container(
+  //             margin: EdgeInsets.all(10),
+  //             width: double.infinity,
+  //             child: Text(
+  //               sectionLabels[index],
+  //               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
+  //             ),
+  //           ),
+  //           Container(
+  //             height: 90,
+  //             child: ListView.builder(
+  //               itemCount: index == 0 ? 3 : 2,
+  //               physics: NeverScrollableScrollPhysics(),
+  //               itemBuilder: (BuildContext context, int subListIndex) {
+  //                 if (index == 0)
+  //                   return Container(
+  //                     margin: EdgeInsets.symmetric(horizontal: 20),
+  //                     height: 30,
+  //                     child: TextButton(
+  //                       style: TextButton.styleFrom(
+  //                         alignment: Alignment.centerLeft,
+  //                       ),
+  //                       child: Text(
+  //                         subListIndex.toString(),
+  //                         textAlign: TextAlign.start,
+  //                         style:
+  //                             TextStyle(color: Colors.white.withOpacity(0.6)),
+  //                       ),
+  //                       onPressed: () {},
+  //                     ),
+  //                   );
+  //                 else
+  //                   return ListTile(
+  //                     leading: Container(
+  //                       width: 50,
+  //                       height: 50,
+  //                       color: Colors.red,
+  //                     ),
+  //                     title: Text("hi"),
+  //                   );
+  //               },
+  //             ),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 }

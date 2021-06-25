@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:musicplayer/screens/tabs/downlaod_page.dart';
+import 'package:musicplayer/widgets/downlaod_widget.dart';
 import 'package:musicplayer/screens/tabs/playlist_tab/album_page.dart';
 
 import '../../../widgets/music_tile.dart';
@@ -46,12 +46,7 @@ class _ExploreTabState extends State<ExploreTab> {
           ),
           IconButton(
             splashRadius: 20,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DownlaodPage()),
-              );
-            },
+            onPressed: () {},
             icon: SvgPicture.asset(
               "assets/icons/content.svg",
               color: Colors.white,
